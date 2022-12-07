@@ -1,0 +1,39 @@
+#include <iostream>
+#include <iomanip> 
+#include <cstdlib> 
+#include <ctime>
+using namespace std;
+
+int main(void) {
+    int m = 3;
+    int n = 3;
+    int arr[m][n];
+    
+    srand(time(NULL));
+    
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++) 
+        {
+            arr[i][j] = rand() % 50;
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+    int leftDiagnum = 2;
+    int rightDiagnum = 0;
+    int leftDiagSum = 0;
+    int rightDiagSum = 0; 
+    
+    for (int i = 0; i < 3; i++)
+    {
+        leftDiagSum += arr[leftDiagnum][i];
+        rightDiagSum += arr[rightDiagnum][i];
+
+        leftDiagnum--;
+        rightDiagnum++;
+    }
+    cout << "Right diagonal = " << rightDiagSum << endl;
+    cout << "Left diagonal = " << leftDiagSum << endl;
+}
